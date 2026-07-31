@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO App | Hamza Bashir</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add_2,dark_mode,light_mode">
+</head>
+
+<body>
+
+    <header>
+        <button id="themeToggle" type="button" aria-label="Toggle dark mode">
+            <span class="material-symbols-outlined" id="themeIcon">dark_mode</span>
+        </button>
+        <h1 id="heading">TO-DO List App</h1>
+        <p id="author">By Hamza Bashir</p>
+    </header>
+
+    <main>
+        <form id="todoForm">
+            <div id="inp-div">
+                <input id="input" type="text" placeholder="Add a task..." autocomplete="off" required>
+
+                <button id="button" type="submit" aria-label="Add Task">
+                    <span class="material-symbols-outlined">add_2</span>
+                </button>
+            </div>
+        </form>
+
+        <section>
+            <p id="taskCounter"></p>
+            <div id="search-div">
+                <input id="search" type="search" placeholder="Search tasks...">
+            </div>
+            <div id="filters">
+                <button type="button" id="allBtn">All</button>
+                <button type="button" id="activeBtn">Active</button>
+                <button type="button" id="completedBtn">Completed</button>
+            </div>
+            <ul id="todoList"></ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <div>Want source code?</div>
+        <a href="https://github.com/hamzabashir234/todo-list-app" target="_blank" id="code">SEE CODE</a>
+    </footer>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
