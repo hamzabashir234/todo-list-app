@@ -13,11 +13,10 @@ const filterBtns = [allBtn, activeBtn, completedBtn];
 const themeToggle = document.getElementById("themeToggle");
 const themeIcon = document.getElementById("themeIcon");
 
-let tasks = [];          // { id, text, completed }
+let tasks = []; 
 let currentFilter = "all";
 let editingId = null;
 
-/* ============ storage ============ */
 const loadTasks = () => {
     const stored = localStorage.getItem("tasks");
     tasks = stored ? JSON.parse(stored) : [];
@@ -30,7 +29,6 @@ const saveTasks = () => {
 const generateId = () =>
     Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 
-/* ============ helpers ============ */
 const resetInput = () => {
     inp.value = "";
     inp.focus();
@@ -78,7 +76,6 @@ const saveEdit = (id, newText) => {
     render();
 };
 
-/* ============ rendering ============ */
 const render = () => {
     ul.innerHTML = "";
 
@@ -94,7 +91,6 @@ const render = () => {
     visibleTasks.forEach(task => {
         const li = document.createElement("li");
 
-        // checkbox + text live together
         const leftDiv = document.createElement("div");
         leftDiv.classList.add("task-left");
 
@@ -121,8 +117,6 @@ const render = () => {
             span.classList.toggle("completed", task.completed);
             leftDiv.append(checkbox, span);
         }
-
-        // edit + delete live together
         const actionsDiv = document.createElement("div");
         actionsDiv.classList.add("task-actions");
 
@@ -179,7 +173,6 @@ const createTask = (text) => {
     render();
 };
 
-/* ============ dark mode ============ */
 const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
 const getStoredTheme = () => localStorage.getItem("theme"); // "light" | "dark" | null
@@ -188,7 +181,6 @@ const getEffectiveTheme = () =>
     getStoredTheme() || (systemPrefersDark.matches ? "dark" : "light");
 
 const updateThemeIcon = () => {
-    // show the icon for the mode the button will switch TO
     themeIcon.textContent = getEffectiveTheme() === "dark" ? "light_mode" : "dark_mode";
 };
 
@@ -208,14 +200,12 @@ themeToggle.addEventListener("click", () => {
     applyStoredTheme();
 });
 
-// live-update if the OS theme changes and the user hasn't manually overridden it
 systemPrefersDark.addEventListener("change", () => {
     if (!getStoredTheme()) {
         updateThemeIcon();
     }
 });
 
-/* ============ events ============ */
 todoForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -235,7 +225,6 @@ allBtn.addEventListener("click", () => setFilter("all", allBtn));
 activeBtn.addEventListener("click", () => setFilter("active", activeBtn));
 completedBtn.addEventListener("click", () => setFilter("completed", completedBtn));
 
-/* ============ init ============ */
 applyStoredTheme();
 allBtn.classList.add("active");
 loadTasks();
