@@ -1,3 +1,4 @@
+// Test for Github Desktop
 const todoForm = document.getElementById("todoForm");
 const inp = document.getElementById("input");
 const ul = document.getElementById("todoList");
@@ -25,7 +26,6 @@ const loadTasks = () => {
 const saveTasks = () => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 };
-
 const generateId = () =>
     Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 
