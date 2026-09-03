@@ -1,4 +1,3 @@
-// Test for Github Desktop
 const todoForm = document.getElementById("todoForm");
 const inp = document.getElementById("input");
 const ul = document.getElementById("todoList");
