@@ -1,4 +1,3 @@
-// Test for VS code
 const todoForm = document.getElementById("todoForm");
 const inp = document.getElementById("input");
 const ul = document.getElementById("todoList");
